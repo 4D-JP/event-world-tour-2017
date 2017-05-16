@@ -1,0 +1,8 @@
+User: Designer
+Pass: 1
+
+User: Administrator
+Pass: 1
+
+User: User
+Pass: 1
