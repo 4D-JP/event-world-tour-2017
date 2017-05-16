@@ -1,0 +1,35 @@
+<!--#4DCODE
+  C_TEXT:C284($json)
+  $param:=Substring:C12($1;2)
+  $param:=Replace string:C233($param;"@";"";*)
+  Case of
+  :($param="")
+  	ALL RECORDS:C47([Contacts])
+  :(Match regex:C1019("\\d+";$param))
+    SET QUERY LIMIT:C395(1)
+    QUERY:C277([Contacts];[Contacts]ID=$param)
+    SET QUERY LIMIT:C395(0)
+    C_OBJECT:C1216($record)
+    OB SET:C1220($record;\
+      "LastName";[Contacts]LastName;\
+      "FirstName";[Contacts]FirstName;\
+      "id";[Contacts]ID;\
+      "Organization";[Contacts]Organization;\
+      "email";[Contacts]Email)
+    $json:=JSON Stringify:C1217($record)
+  Else
+    QUERY:C277([Contacts];[Contacts]LastName=$param+"@";*)
+    QUERY:C277([Contacts];|;[Contacts]FirstName=$param+"@")
+  End case
+  If ($json="")
+    C_OBJECT:C1216($template)
+    OB SET:C1220($template;\
+      "LastName";->[Contacts]LastName;\
+      "FirstName";->[Contacts]FirstName;\
+      "id";->[Contacts]ID;\
+      "Organization";->[Contacts]Organization;\
+      "email";->[Contacts]Email)
+    $json:=Selection to JSON:C1234([Contacts];$template)
+  End if
+-->
+<!--#4DHTML $json-->

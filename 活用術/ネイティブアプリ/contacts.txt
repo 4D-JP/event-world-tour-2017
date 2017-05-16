@@ -1,0 +1,1 @@
+﻿  //%attributes = {"invisible":true,"publishedWeb":true,"lang":"en"} comment added and reserved by 4D.C_TEXT:C284($1;$path;$template;$json)$path:=Get 4D folder:C485(HTML Root folder:K5:20)+"4D"+Folder separator:K24:12+"contacts.4dtag"$template:=Document to text:C1236($path;"utf-8")PROCESS 4D TAGS:C816($template;$json;$1)WEB SEND TEXT:C677($json;"application/json")

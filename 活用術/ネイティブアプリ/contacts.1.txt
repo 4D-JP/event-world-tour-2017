@@ -1,0 +1,1 @@
+﻿  //%attributes = {"invisible":true,"publishedWeb":true,"lang":"en"} comment added and reserved by 4D.C_TEXT:C284($1)ALL RECORDS:C47([Contacts:2])C_OBJECT:C1216($template)OB SET:C1220($template;\"LastName";->[Contacts:2]LastName:3;\"FirstName";->[Contacts:2]FirstName:2)WEB SEND TEXT:C677(Selection to JSON:C1234([Contacts:2];$template);"application/json")

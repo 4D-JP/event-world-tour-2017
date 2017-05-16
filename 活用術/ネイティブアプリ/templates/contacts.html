@@ -1,0 +1,16 @@
+<ion-view title="Contacts" id="page1">
+  <ion-content padding="true" class="has-header">
+    <label class="item item-input" id="clients-search1">
+      <i class="icon ion-search placeholder-icon"></i>
+      <input type="search" placeholder="" ng-model="Contact.name" ng-change="searchContacts()" />
+    </label>
+    &nbsp;
+    <ion-list id="contacts-list1">
+      <ion-item class="item-avatar" ng-repeat="Contact in Contacts" ui-sref="contact({id:Contact.id})">
+        <img src="https://127.0.0.1/4DACTION/image?table=1&id={{Contact.id}}&width=40&height=40">
+    	  <h2>{{Contact.FirstName}}</h2>
+        <p>{{Contact.LastName}}</p>
+      </ion-item>
+     </ion-list>
+  </ion-content>
+</ion-view>
